@@ -43,7 +43,7 @@ module "main" {
       direction           = "in"
       tenant              = "TENANT-2"
       application_profile = "AP1"
-      endpoint_group      = "EGP1"
+      endpoint_group      = "EPG1"
       access_paths = [
         {
           node_id  = 101
@@ -164,7 +164,7 @@ resource "test_assertions" "spanRsSrcToVPort" {
   equal "tDn" {
     description = "tDn"
     got         = data.aci_rest_managed.spanRsSrcToVPort.content.tDn
-    want        = "uni/tn-TENANT-2/ap-AP1/epg-EPG1/cep-01:23:45:67:89:AB"
+    want        = "uni/tn-TENANT-1/ap-AP1/epg-EPG1/cep-01:23:45:67:89:AB"
   }
 }
 
