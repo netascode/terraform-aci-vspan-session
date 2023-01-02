@@ -5,5 +5,5 @@ output "dn" {
 
 output "name" {
   value       = aci_rest_managed.spanVSrcGrp.content.name
-  description = "VSPAN Session Name."
+  description = "VSPAN session name."
 }

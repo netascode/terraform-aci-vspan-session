@@ -131,7 +131,7 @@ data "aci_rest_managed" "spanVSrc1" {
 }
 
 resource "test_assertions" "spanVSrc1" {
-  component = "spanVSrc"
+  component = "spanVSrc1"
 
   equal "name" {
     description = "name"
@@ -192,7 +192,7 @@ data "aci_rest_managed" "spanVSrc2" {
 }
 
 resource "test_assertions" "spanVSrc2" {
-  component = "spanVSrc"
+  component = "spanVSrc2"
 
   equal "name" {
     description = "name"
@@ -234,7 +234,7 @@ data "aci_rest_managed" "spanRsSrcToPathEp_fex_channel1" {
 }
 
 resource "test_assertions" "spanRsSrcToPathEp_fex_channel1" {
-  component = "spanRsSrcToPathEp"
+  component = "spanRsSrcToPathEp_fex_channel1"
 
   equal "tDn" {
     description = "tDn"
@@ -249,7 +249,7 @@ data "aci_rest_managed" "spanRsSrcToPathEp_fex_channel2" {
 }
 
 resource "test_assertions" "spanRsSrcToPathEp_fex_channel2" {
-  component = "spanRsSrcToPathEp"
+  component = "spanRsSrcToPathEp_fex_channel2"
 
   equal "tDn" {
     description = "tDn"
@@ -264,7 +264,7 @@ data "aci_rest_managed" "spanRsSrcToPathEp_fex_port" {
 }
 
 resource "test_assertions" "spanRsSrcToPathEp_fex_port" {
-  component = "spanRsSrcToPathEp"
+  component = "spanRsSrcToPathEp_fex_port"
 
   equal "tDn" {
     description = "tDn"
@@ -272,4 +272,3 @@ resource "test_assertions" "spanRsSrcToPathEp_fex_port" {
     want        = "topology/pod-1/paths-101/extpaths-151/pathep-[eth1/1]"
   }
 }
-

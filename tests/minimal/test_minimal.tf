@@ -16,7 +16,8 @@ terraform {
 module "main" {
   source = "../.."
 
-  name = "SESSION2"
+  name             = "SESSION2"
+  destination_name = "DEST1"
 }
 
 data "aci_rest_managed" "spanVSrcGrp" {
@@ -44,5 +45,21 @@ resource "test_assertions" "spanVSrcGrp" {
     description = "descr"
     got         = data.aci_rest_managed.spanVSrcGrp.content.descr
     want        = ""
+  }
+}
+
+data "aci_rest_managed" "spanSpanLbl" {
+  dn = "${data.aci_rest_managed.spanVSrcGrp.id}/spanlbl-DEST1"
+
+  depends_on = [module.main]
+}
+
+resource "test_assertions" "spanSpanLbl" {
+  component = "spanSpanLbl"
+
+  equal "name" {
+    description = "name"
+    got         = data.aci_rest_managed.spanSpanLbl.content.name
+    want        = "DEST1"
   }
 }

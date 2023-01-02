@@ -28,7 +28,6 @@ variable "admin_state" {
 variable "destination_name" {
   description = "VSPAN session destination group name."
   type        = string
-  default     = ""
 
   validation {
     condition     = can(regex("^[a-zA-Z0-9\\!#$%()*,-./:;@ _{|}~?&+]{0,128}$", var.destination_name))
@@ -48,7 +47,7 @@ variable "destination_description" {
 }
 
 variable "sources" {
-  description = "List of VSPAN session sources."
+  description = "List of VSPAN session sources. Allowed values `direction`: `in`, `out`, `both`."
   type = list(object({
     description         = optional(string, "")
     name                = string

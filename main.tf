@@ -49,7 +49,7 @@ resource "aci_rest_managed" "spanVSrc" {
 }
 
 resource "aci_rest_managed" "spanRsSrcToEpg" {
-  for_each   = { for source in var.sources : source.name => source if source.tenant != null && source.application_profile != null && source.endpoint_group != null }
+  for_each   = { for source in var.sources : source.name => source if source.tenant != null && source.application_profile != null && source.endpoint_group != null && source.endpoint == null }
   dn         = "${aci_rest_managed.spanVSrc[each.value.name].dn}/rssrcToEpg"
   class_name = "spanRsSrcToEpg"
   content = {
